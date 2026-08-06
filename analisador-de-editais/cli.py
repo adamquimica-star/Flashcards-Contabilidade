@@ -34,9 +34,28 @@ def cmd_analisar(args: argparse.Namespace) -> int:
 
 
 def cmd_etapa(args: argparse.Namespace) -> int:
-    print(f"▶️  Rodando etapa isolada: {args.nome} sobre {args.pdf}")
-    # TODO: despachar para a etapa correspondente conforme args.nome
-    print("ℹ️  Etapas isoladas ainda não conectadas — ver src/analisador/etapas/.")
+    config = carregar_config()
+    pdf = Path(args.pdf)
+    if not pdf.exists():
+        print(f"❌ Arquivo não encontrado: {pdf}")
+        return 1
+
+    if args.nome == "ingestao":
+        from analisador.etapas import e01_ingestao
+
+        print(f"▶️  Ingestão do PDF: {pdf.name}")
+        try:
+            texto = e01_ingestao.extrair_texto(pdf, config.pasta_processado)
+        except e01_ingestao.PdfSemTextoError as erro:
+            print(f"❌ {erro}")
+            return 1
+        destino = config.pasta_processado / f"{pdf.stem}.txt"
+        print(f"✅ Texto extraído: {len(texto)} caracteres.")
+        print(f"💾 Salvo em: {destino}")
+        return 0
+
+    # Demais etapas ainda não conectadas.
+    print(f"ℹ️  A etapa '{args.nome}' ainda não foi implementada.")
     return 0
 
 

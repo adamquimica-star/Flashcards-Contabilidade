@@ -89,9 +89,21 @@ analisador-de-editais/
 
 ## 🚧 Status
 
-**Esqueleto estruturado.** Os arquivos existem com a assinatura das funções,
-a documentação de cada etapa e marcações `TODO` do que falta implementar. Nada
-"faz" ainda — é o mapa para preencher.
+| Etapa | Situação |
+|-------|----------|
+| 1. Ingestão do PDF | ✅ **Implementada** (pdfplumber + fallback pypdf, com limpeza) |
+| 2–7 | 🔲 Esqueleto documentado (a implementar) |
+
+As etapas 2 a 7 existem com a assinatura das funções, a documentação de cada
+uma e marcações `TODO` do que falta — é o mapa para preencher.
+
+### Testar a etapa 1
+
+```bash
+pip install -r requirements.txt
+python cli.py etapa ingestao data/entrada/edital_exemplo.pdf   # extrai o texto
+python tests/test_e01_ingestao.py                              # testes
+```
 
 ## 🚀 Como será usado (quando implementado)
 
