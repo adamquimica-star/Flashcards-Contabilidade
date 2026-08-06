@@ -1,0 +1,21 @@
+# Copie para config/settings.yaml e ajuste conforme o edital/uso.
+
+ia:
+  modelo: claude-sonnet-5     # modelo usado nas etapas de IA
+  temperatura: 0.2            # baixa = respostas mais consistentes
+  max_tokens: 4096
+
+pastas:
+  entrada: data/entrada
+  processado: data/processado
+  saida: data/saida
+
+criativos:
+  # Ajuste ao tom da sua marca/professor
+  tom: "didático, direto e motivador"
+  hashtags:
+    - "#concursopublico"
+    - "#edital"
+  formatos:
+    - feed
+    - stories

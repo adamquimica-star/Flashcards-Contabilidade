@@ -1,0 +1,13 @@
+# --- Núcleo ---
+anthropic>=0.40.0        # cliente da API da Claude (etapas de IA)
+python-dotenv>=1.0.0     # carrega variáveis do .env
+pyyaml>=6.0              # lê config/settings.yaml
+
+# --- Leitura de PDF (etapa 1: ingestão) ---
+pypdf>=4.0.0             # extração de texto de PDFs "digitais"
+pdfplumber>=0.11.0       # extração mais fiel de layout/tabelas
+# pytesseract>=0.3.10    # descomente se precisar de OCR (edital escaneado)
+# pdf2image>=1.17.0      # idem — converte páginas em imagem p/ OCR
+
+# --- Interface de linha de comando ---
+rich>=13.0.0             # saída bonita no terminal (progresso, tabelas)
